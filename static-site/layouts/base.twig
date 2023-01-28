@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+      <head>
+            <meta charset="UTF-8"/>
+            <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+            <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+            <title>
+                  {% if title %}
+                        {{ title }} -
+                  {% endif %}
+                  {{ site.name }}
+            </title>
+            <link rel="icon" href="{{ theme.link }}/img/favicon.ico"/>
+            <link rel="apple-touch-icon" href="#"/>
+            <meta name="description" content="#"/>
+            <meta name="og:title" content="{{ title ? title : '' }} - {{ site.name }}"/>
+            <meta name="og:image" content="{{ theme.link }}/img/og-img.jpg"/>
+            <meta name="og:site_name" content="{{ title ? title : '' }} - {{ site.name }}"/>
+            <meta property="og:description" content="#"/>
+            {% if build.is_dev %}
+                  <link href="/styles/main.css" rel="stylesheet" type="text/css"/>
+                  <script type="module" src="/@vite/client"></script>
+                  <script type="module" src="/app/app.js"></script>
+            {% endif %}
+            {% if build.manifest %}
+                  {% for css_path in build.manifest['app/app.js'].css %}
+                        <link rel="stylesheet" href="{{ theme.path }}/{{ css_path }}"/>
+                  {% endfor %}
+                  <script type="module" crossorigin src="{{ theme.path }}/{{ build.manifest['app/app.js'].file }}"></script>
+            {% endif %}
+      </head>
+      <body>
+            <div id="app">
+                  {% include 'navigation.twig' with {
+                  items: navgation.lang
+                  } %}
+                  <div>
+                        <div class="js-content" data-template="{{ template|default('default') }}" role="main">
+                              {% block content %}
+                                    <div class="flex items-center justify-center h-screen text-5xl text-center">
+                                          Sorry, no content
+                                    </div>
+                              {% endblock %}
+                        </div>
+                  </div>
+            </div>
+      </body>
+</html>

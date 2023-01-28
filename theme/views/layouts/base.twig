@@ -1,0 +1,91 @@
+<!doctype html>
+<!--[if lt IE 9]><html class="no-js no-svg ie lt-ie9 lt-ie8 lt-ie7" {{ site.language_attributes }}> <![endif]-->
+<!--[if IE 9]><html class="no-js no-svg ie ie9 lt-ie9 lt-ie8" {{ site.language_attributes }}> <![endif]-->
+<!--[if gt IE 9]><!--><html class="no-js no-svg" {{ site.language_attributes }}> <!--<![endif]-->
+<head>
+    <meta charset="{{ site.charset }}" />
+    <meta name="description" content="{{ site.description }}">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" href="{{ theme.link }}/img/favicon.ico"/>
+    {{ function('wp_head') }}
+    {{ function('vite', 'app/app.js') }}
+    {{ function('wp_head')}}
+</head>
+
+
+	
+<body class="{{ body_class }}" data-template="base.twig">
+    <div id="app">
+	
+        <div class="js-content" data-template="{{ template|default('default') }}" role="main">
+            <a class="skip-link screen-reader-text" href="#content">{{ _e( 'Skip to content') }}</a>
+	
+            <header class="header">
+	
+                {% block header %}
+	
+                    <div class="wrapper">
+	
+                        <h1 class="hdr-logo" role="banner">
+                            <a class="hdr-logo-link" href="{{ site.url }}" rel="home">{{ site.name }}</a>
+	
+                        </h1>
+	
+                        <nav id="nav-main" class="nav-main" role="navigation">
+                            {% include "menu.twig" with {'items': menu.get_items} %}
+	
+                        </nav>
+                        <!-- #nav -->
+	
+                    </div>
+	
+                {% endblock %}
+	
+            </header>
+
+	
+            <section id="content" role="main" class="content-wrapper">
+	
+                {% if title %}
+                    <h1>
+                        {{ title }}
+                    </h1>
+                {% endif %}
+	
+                <div class="wrapper {{ sidebar_class }}">
+	
+                    {% block content %}
+                        Sorry, no content
+	
+                    {% endblock %}
+	
+                </div>
+	
+                {% if sidebar %}
+	
+                    <aside class="layout-sidebar">
+                        {{ sidebar }}
+	
+                    </aside>
+	
+                {% endif %}
+	
+            </section>
+	
+        </div>
+        {% block footer %}
+	
+            <footer id="footer">
+	
+                {% include 'footer.twig' %}
+	
+            </footer>
+            {{ function('wp_footer') }}
+	
+        {% endblock %}
+	
+    </div>
+</body>
+</html>

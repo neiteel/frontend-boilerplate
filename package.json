@@ -1,0 +1,39 @@
+{
+  "name": "frontend-boilerplate",
+  "private": true,
+  "version": "0.0.0",
+  "scripts": {
+    "clean": "rimraf ./theme/dist",
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "start": "concurrently clean npm:start:*",
+    "start:eleventy": "NODE_ENV=development eleventy --incremental --serve",
+    "generate": "npm run generate:vite && npm run generate:eleventy",
+    "generate:eleventy": "NODE_ENV=production eleventy",
+    "generate:vite": "NODE_ENV=production vite build"
+  },
+  "devDependencies": {
+    "@11ty/eleventy": "2.0.0-beta.2",
+    "@11ty/eleventy-plugin-vite": "^4.0.0",
+    "@prettier/plugin-php": "^0.19.3",
+    "@tailwindcss/typography": "^0.5.9",
+    "autoprefixer": "^10.4.13",
+    "concurrently": "^7.6.0",
+    "djlint": "^1.19.13",
+    "eslint": "^8.0.1",
+    "eslint-config-prettier": "^8.6.0",
+    "eslint-config-standard": "^17.0.0",
+    "eslint-plugin-import": "^2.25.2",
+    "eslint-plugin-n": "^15.0.0",
+    "eslint-plugin-promise": "^6.0.0",
+    "html-minifier": "^4.0.0",
+    "postcss-import": "^15.1.0",
+    "postcss-nesting": "^11.0.1",
+    "prettier": "^2.8.3",
+    "tailwindcss": "^3.2.4",
+    "twing": "^5.1.2",
+    "vite": "^4.0.0",
+    "vite-plugin-live-reload": "^3.0.1"
+  }
+}
