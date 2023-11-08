@@ -24,16 +24,17 @@
     "eslint": "^8.0.1",
     "eslint-config-prettier": "^8.6.0",
     "eslint-config-standard": "^17.0.0",
-    "eslint-plugin-import": "^2.25.2",
-    "eslint-plugin-n": "^15.0.0",
-    "eslint-plugin-promise": "^6.0.0",
+    "eslint-plugin-import": "^2.29.0",
+    "eslint-plugin-n": "^16.3.0",
+    "eslint-plugin-promise": "^6.1.1",
     "html-minifier": "^4.0.0",
+    "postcss": "^8.4.31",
     "postcss-import": "^15.1.0",
     "postcss-nesting": "^11.0.1",
-    "prettier": "^2.8.3",
+    "prettier": "^3.0.3",
     "tailwindcss": "^3.3.5",
     "twing": "^6.0.0-alpha.1",
     "vite": "^4.5.0",
-    "vite-plugin-live-reload": "^3.0.1"
+    "vite-plugin-live-reload": "^3.0.2"
   }
 }
