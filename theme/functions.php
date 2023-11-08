@@ -2,22 +2,12 @@
 /**
  * Timber starter-theme
  * https://github.com/timber/starter-theme
- *
- * @package  WordPress
- * @subpackage  Timber
- * @since   Timber 0.1
  */
 
-/**
- * If you are installing Timber as a Composer dependency in your theme, you'll need this block
- * to load your dependencies and initialize Timber. If you are using Timber via the WordPress.org
- * plug-in, you can safely delete this block.
- */
-$composer_autoload = __DIR__ . '/vendor/autoload.php';
-if (file_exists($composer_autoload)) {
-  require_once $composer_autoload;
-  $timber = new Timber\Timber();
-}
+// Load Composer dependencies.
+require_once __DIR__ . '/vendor/autoload.php';
+
+Timber\Timber::init();
 
 /**
  * load vite
@@ -92,7 +82,7 @@ class StarterSite extends Timber\Site
 
     // $context['options'] = get_fields('theme_option_page' . getLangSuffix());
 
-    $context['menu'] = new Timber\Menu('main');
+    $context['menu'] = Timber::get_menu();
 
     // https://developer.yoast.com/customization/apis/surfaces-api/
     // $context['description'] = YoastSEO()->meta->for_current_page()->description;

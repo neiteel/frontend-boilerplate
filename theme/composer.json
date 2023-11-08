@@ -1,5 +1,10 @@
 {
     "require": {
-        "timber/timber": "1.21.0"
+        "timber/timber": "2.0.0-rc.1"
+    },
+    "config": {
+        "allow-plugins": {
+            "composer/installers": true
+        }
     }
 }
